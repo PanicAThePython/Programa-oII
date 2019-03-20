@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>lISTAR pESSOA</title>
+        <meta charset="uft-8">
+    </head>
+    
+    <body>
+
+        <h1>Listar Pessoas</h1>
+        <br>
+        <br>
+        <hr>
+        {%for p in usuarios:%}
+            <strong>{{p.nome}} </strong> &nbsp; {{p.endereco}} &nbsp; {{p.telefone}}
+            <br>
+            <br>
+        {%endfor%}
+        <hr>
+        <a href="/alterar_pessoa">Alterar Pessoa</a>
+        <br>
+        <a href="/inserir_pessoa">Inserir Pessoa</a>
+        
+    </body>
+</html>

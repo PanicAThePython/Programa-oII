@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-
+from pessoa import *
 app = Flask("__name__")
 
 @app.route("/")
@@ -8,7 +8,7 @@ def iniciar():
 
 @app.route("/listar_pessoas")
 def listar_pessoas():
-    return render_template("listar_pessoas.html")
+    return render_template("listar_pessoas_jinja.html", usuarios=lista)
 
 @app.route("/alterar_pessoa")
 def alterar_pessoa():
