@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <title>lISTAR pESSOA</title>
+        <title>Listar Pessoa</title>
         <meta charset="uft-8">
     </head>
     
@@ -11,25 +11,11 @@
         <br>
         <br>
         <hr>
-        <h2>Gabriel Lima</h2>
-
-        <ul>
-            <li>Id: 2</li>
-            <li>Idade: 16</li>
-            <li>Cidade: Pomerode</li>
-        </ul>
-        <br>
-        <hr>
-        <h2>Natália</h2>
-
-        <ul>
-            <li>Id: 1</li>
-            <li>Idade: 16</li>
-            <li>Cidade: Blumenau</li>        
-        </ul>
-
-        <br>
-        <br>
+        {%for p in usuarios:%}
+            <strong>{{p.cpf}}</strong> &nbsp; {{p.nome}} &nbsp; {{p.endereco}} &nbsp; {{p.telefone}} &nbsp; <a href=/excluir_pessoa?cpf={{p.cpf}}>Excluir</a>
+            <br>
+            <br>
+        {%endfor%}
         <hr>
         <a href="/alterar_pessoa">Alterar Pessoa</a>
         <br>

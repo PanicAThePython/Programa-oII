@@ -8,7 +8,7 @@ def iniciar():
 
 @app.route("/listar_pessoas")
 def listar_pessoas():
-    return render_template("listar_pessoas_jinja.html", usuarios=lista)
+    return render_template("listar_pessoas.html", usuarios=lista)
 
 @app.route("/alterar_pessoa")
 def alterar_pessoa():
@@ -24,10 +24,24 @@ def exibir_mensagem():
 
 @app.route("/processar_inserir")
 def add():
+    cpf = request.args.get("cpf")
     nome = request.args.get("nome")
     endereco = request.args.get("endereco")
     telefone = request.args.get("telefone")
-    lista.append(Pessoa(nome,endereco,telefone))
+    lista.append(Pessoa(cpf,nome,endereco,telefone))
     return listar_pessoas()
+
+@app.route("/excluir_pessoa")
+def excluir():
+
+    chave = request.args.get("cpf")
+    print(type(chave))
     
+    for p in lista:
+        if p.cpf == int(chave):
+            lista.remove(p)
+    
+
+    return listar_pessoas()
+
 app.run(host="0.0.0.0")
