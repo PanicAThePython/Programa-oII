@@ -1,3 +1,3 @@
 print("ola")
 print("oiiii")
-print("tchau")
+print("tchau") #mostra na tela a palavra 'tchau'
