@@ -1,3 +1,3 @@
 print("ola")
 print("oiiii")
-print("tchau")
+print("goodbye") print("tchau")
