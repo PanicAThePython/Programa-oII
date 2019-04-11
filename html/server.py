@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from pessoa import *
 app = Flask("__name__")
 
@@ -9,10 +9,6 @@ def iniciar():
 @app.route("/listar_pessoas")
 def listar_pessoas():
     return render_template("listar_pessoas.html", usuarios=lista)
-
-@app.route("/alterar_pessoa")
-def alterar_pessoa():
-    return render_template("alterar_pessoa.html")
 
 @app.route("/inserir_pessoa")
 def inserir_pessoa():
@@ -43,5 +39,28 @@ def excluir():
     
 
     return listar_pessoas()
+
+@app.route("/form_alterar_pessoa")
+def form_alterar_pessoa():
+    
+    cpf = request.args.get("cpf")
+
+    for p in lista:
+        if p.cpf == cpf:
+            return render_template("form_alterar_pessoa.html", achei=p)
+    #return "Pessoa não encontrada"
+
+@app.route("/alterar_pessoa")
+def alterar_pessoa():
+    cpf = request.args.get("cpf")
+    nome = request.args.get("nome")
+    telefone = request.args.get("telefone")
+    endereco = request.args.get("endereco")
+
+    for i in range(len(lista)):
+        if lista[i].cpf == cpf:
+            lista[i] = Pessoa(cpf,nome,endereco,telefone)
+            return redirect(url_for("listar_pessoas"))
+    return "Não achei, desculpe!"
 
 app.run(host="0.0.0.0")

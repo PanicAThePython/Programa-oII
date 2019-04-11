@@ -12,12 +12,11 @@
         <br>
         <hr>
         {%for p in usuarios:%}
-            <strong>{{p.cpf}}</strong> &nbsp; {{p.nome}} &nbsp; {{p.endereco}} &nbsp; {{p.telefone}} &nbsp; <a href=/excluir_pessoa?cpf={{p.cpf}}>Excluir</a>
+            <strong>{{p.cpf}}</strong> &nbsp; {{p.nome}} &nbsp; {{p.endereco}} &nbsp; {{p.telefone}} &nbsp; <a href=/excluir_pessoa?cpf={{p.cpf}}>Excluir</a> &nbsp; <a href=/form_alterar_pessoa?cpf={{p.cpf}}>Alterar</a>
             <br>
             <br>
         {%endfor%}
         <hr>
-        <a href="/alterar_pessoa">Alterar Pessoa</a>
         <br>
         <a href="/inserir_pessoa">Inserir Pessoa</a>
         

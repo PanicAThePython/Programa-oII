@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>alterar</title>
+    <meta charset="uft-8">
+</head>
+
+<body>
+    <h1>Alterar pessoa</h1>
+    <br>
+    <br>
+    <strong>achei.cpf</strong>
+    <form action="/alterar_pessoa">
+
+        <input type="hidden" name=cpf>
+
+        Nome: <input type="text" name="nome", value={{achei.nome}}>
+
+        Endereco: <input type="text" name="endereco", value={{achei.endereco}}}>
+
+        Telefone: <input type="text" name="telefone", value={{achei.telefone}}>
+
+        <input type="submit" value="Alterar">
+    </form>
+</body>
+</html>
