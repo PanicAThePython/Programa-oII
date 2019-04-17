@@ -26,7 +26,7 @@ def add():
     telefone = request.args.get("telefone")
     lista.append(Pessoa(cpf,nome,endereco,telefone))
     return redirect(url_for("iniciar"))
-   
+    
 
 @app.route("/excluir_pessoa")
 def excluir():
@@ -43,8 +43,8 @@ def excluir():
 def form_alterar_pessoa():
     
     chave = request.args.get("cpf")
-    print(chave)
-
+    '''print(chave)'''
+    
     for p in lista:
         if p.cpf == int(chave):
             return render_template("form_alterar_pessoa.html", achei=p)

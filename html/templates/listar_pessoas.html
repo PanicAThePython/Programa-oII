@@ -12,7 +12,7 @@
         <br>
         <hr>
         {%for p in usuarios:%}
-            <strong>{{p.cpf}}</strong> &nbsp; {{p.nome}} &nbsp; {{p.endereco}} &nbsp; {{p.telefone}} &nbsp; <a href=/excluir_pessoa?cpf={{p.cpf}}>Excluir</a> &nbsp; <a href=/form_alterar_pessoa?cpf={{p.cpf}}>Alterar</a>
+            <strong>{{p.cpf}}</strong> &nbsp; {{p.nome}} &nbsp; {{p.endereco}} &nbsp; {{p.telefone}} &nbsp; <a href=/excluir_pessoa?cpf={{p.cpf}}><img src="static/cancelar.png" style="width: 15px; height: 15px;"></a> &nbsp; <a href=/form_alterar_pessoa?cpf={{p.cpf}}><img src="static/alterar.png" style="width: 15px; height: 15px;"></a>
             <br>
             <br>
         {%endfor%}

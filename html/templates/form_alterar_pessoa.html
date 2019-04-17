@@ -9,17 +9,17 @@
     <h1>Alterar pessoa</h1>
     <br>
     <br>
-    <strong>{{achei.cpf}}</strong>
+    <strong>CPF: {{achei.cpf}}</strong>
     <br>
     <form action="/alterar_pessoa">
 
         <input type="hidden" name=cpf value={{achei.cpf}}>        
 
-        Nome: <input type="text" name="nome", value={{achei.nome}}>
+        Nome: <input type="text" name="nome", value="{{achei.nome}}">
 
-        Endereco: <input type="text" name="endereco", value={{achei.endereco}}>
+        Endereco: <input type="text" name="endereco", value="{{achei.endereco}}">
 
-        Telefone: <input type="text" name="telefone", value={{achei.telefone}}>
+        Telefone: <input type="text" name="telefone", value="{{achei.telefone}}">
 
         <input type="submit" value="Alterar">
     </form>
