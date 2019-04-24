@@ -8,6 +8,13 @@
 <body>
     <h1>INICIO</h1>
     <br>
-    <a href="/listar_pessoas">Listar pessoas</a>
+
+    {%if session["usuario"]: %}
+        <a href="/logout">Logout</a>
+        <br>
+        <a href="/listar_pessoas">Listar pessoas</a>
+    {%else: %}
+        <a href="/form_login">Login</a>
+    {%endif%}
 </body>
 </html>

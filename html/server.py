@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 from pessoa import *
 app = Flask("__name__")
 
@@ -62,5 +62,25 @@ def alterar_pessoa():
             lista[i] = Pessoa(cpf,nome,endereco,telefone)
             return redirect(url_for("listar_pessoas"))
     return "Não achei, desculpe!"
+
+@app.route("/form_login")
+def form_login():
+    return render_template("form_login.html")
+
+@app.route("/login")
+def login():
+    login = request.args.get("login")
+    senha = request.args.get("senha")
+
+    if login == "admin" and senha == "admin":
+        session["usuario"] = login
+        return redirect("/")
+    else:
+        return "erro no login, tente novamente"
+
+@app.route("/logout")
+def logout():
+    session.pop("usuario")
+    return redirect("/")
 
 app.run()
