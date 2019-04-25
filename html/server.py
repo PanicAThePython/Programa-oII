@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session
 from pessoa import *
 app = Flask("__name__")
 
+app.config["SECRET_KEY"] = 'admin'
 @app.route("/")
 def iniciar():
     return render_template("inicio.html")
@@ -18,12 +19,12 @@ def inserir_pessoa():
 def exibir_mensagem():
     return render_template("exibir_mensagem.html")
 
-@app.route("/processar_inserir")
+@app.route("/processar_inserir", methods=['post'])
 def add():
-    cpf = int(request.args.get("cpf"))
-    nome = request.args.get("nome")
-    endereco = request.args.get("endereco")
-    telefone = request.args.get("telefone")
+    cpf = int(request.form["cpf"])
+    nome = request.form["nome"]
+    endereco = request.form["endereco"]
+    telefone = request.form["telefone"]
     lista.append(Pessoa(cpf,nome,endereco,telefone))
     return redirect(url_for("iniciar"))
     
@@ -50,12 +51,12 @@ def form_alterar_pessoa():
             return render_template("form_alterar_pessoa.html", achei=p)
     return "Pessoa não encontrada"
 
-@app.route("/alterar_pessoa")
+@app.route("/alterar_pessoa", methods=['post'])
 def alterar_pessoa():
-    cpf = int(request.args.get("cpf"))
-    nome = request.args.get("nome")
-    telefone = request.args.get("telefone")
-    endereco = request.args.get("endereco")
+    cpf = int(request.form["cpf"])
+    nome = request.form["nome"]
+    telefone = request.form["telefone"]
+    endereco = request.form["endereco"]
 
     for i in range(len(lista)):
         if lista[i].cpf == cpf:
@@ -67,13 +68,13 @@ def alterar_pessoa():
 def form_login():
     return render_template("form_login.html")
 
-@app.route("/login")
+@app.route("/login", methods=['post'])
 def login():
-    login = request.args.get("login")
-    senha = request.args.get("senha")
+    login = request.form["login"]
+    senha = request.form["senha"]
 
     if login == "admin" and senha == "admin":
-        session["usuario"] = login
+        session['usuario'] = login
         return redirect("/")
     else:
         return "erro no login, tente novamente"
