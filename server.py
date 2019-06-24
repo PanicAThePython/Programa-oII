@@ -30,40 +30,36 @@ def add():
     Pessoa.create(cpf = cpf, nome = nome, endereco = endereco, telefone = telefone)
     return redirect(url_for("iniciar"))
     
-
 @app.route("/excluir_pessoa")
 def excluir():
-
-    chave = int(request.args.get("cpf"))
-
-    for p in lista:
-        if p.cpf == chave:
-            lista.remove(p)
     
+    Pessoa.delete_by_id(request.args.get("cpf"))
     return redirect("/listar_pessoas")
 
 @app.route("/form_alterar_pessoa")
 def form_alterar_pessoa():
     
-    chave = request.args.get("cpf")
+    quem = Pessoa.get_by_id(request.args.get("cpf"))
+    return render_template("form_alterar_pessoa.html", achei=quem)
     
-    for p in lista:
-        if p.cpf == int(chave):
-            return render_template("form_alterar_pessoa.html", achei=p)
-    return "Pessoa não encontrada"
-
 @app.route("/alterar_pessoa", methods=['post'])
 def alterar_pessoa():
-    cpf = int(request.form["cpf"])
-    nome = request.form["nome"]
-    telefone = request.form["telefone"]
-    endereco = request.form["endereco"]
 
-    for i in range(len(lista)):
+#achar pessoa
+    quem = Pessoa.get_by_id(request.args.get("cpf"))
+#guardar novos valores
+    quem.cpf = int(request.form["cpf"])
+    quem.nome = request.form["nome"]
+    quem.telefone = request.form["telefone"]
+    quem.endereco = request.form["endereco"]
+#salvar
+    quem.save()
+
+    """for i in range(len(lista)):
         if lista[i].cpf == cpf:
-            lista[i] = Pessoa(cpf,nome,endereco,telefone)
-            return redirect(url_for("listar_pessoas"))
-    return "Não achei, desculpe!"
+            lista[i] = Pessoa(cpf,nome,endereco,telefone)"""
+    return redirect(url_for("listar_pessoas"))
+    
 
 @app.route("/form_login")
 def form_login():

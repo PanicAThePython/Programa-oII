@@ -30,4 +30,3 @@ if __name__ == "__main__":
     Pessoa.create (cpf = "090.012.919-02", nome = "Sofia Katherine Cimardi", 
     endereco = "Rua Itapema, 562", telefone = "(47) 9 9618-1422")
     '''
-    lista = Pessoa.select()
