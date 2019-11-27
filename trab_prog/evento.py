@@ -51,7 +51,7 @@ class Banda(BaseModel):
         for instrumento in self.instrumentos:
             lista_intm.append(instrumento)
 
-        return self.nome +" é uma banda do gênero "+self.genero+" composta pelos integrantes "+str(lista_intg)+". A banda usa os instrumentos"+\
+        return self.nome +", que é uma banda do gênero "+self.genero+" composta pelos integrantes "+str(lista_intg)+". A banda usa os instrumentos"+\
             str(lista_intm)
 
 class Palco(BaseModel):
@@ -129,10 +129,11 @@ class Festival(BaseModel):
 class Ingresso(BaseModel):
 
     valor = FloatField()
+    tipo = CharField()
     festival = ForeignKeyField(Festival)
 
     def __str__(self):
-        return "Ingresso de valor "+str(self.valor)+" do festival "+str(self.festival)
+        return "Ingresso "+self.tipo+" de valor "+str(self.valor)+" do festival "+str(self.festival)
 
 if __name__=="__main__":
 
@@ -173,6 +174,6 @@ if __name__=="__main__":
     rockinrio.patrocinadores.add([itau, coca, riotur])
     rockinrio.espacos.add([roda_gigante, montanha, big_tower])
     rockinrio.shows.add([show])
-    ingresso = Ingresso.create(valor = 1300, festival = rockinrio)
+    ingresso = Ingresso.create(valor = 1300, tipo = 'inteiro', festival = rockinrio)
     
     print(ingresso)
