@@ -1,0 +1,151 @@
+{
+    "lista": [
+        {
+            "id": 1,
+            "tipo": "inteiro",
+            "valor": 1300.0,
+            "festival": {
+                "data_final": "10/06/2019",
+                "data_inicio": "09/27/2019",
+                "id": 1,
+                "local": "Parque Olímpico da Barra",
+                "nome": "Rock In Rio",
+                "palcos": [
+                    {
+                        "id": 1,
+                        "nome": "Mundo"
+                    },
+                    {
+                        "id": 2,
+                        "nome": "Sunset"
+                    },
+                    {
+                        "id": 3,
+                        "nome": "Supernova"
+                    }
+                ],
+                "shows": [
+                    {
+                        "banda": {
+                            "genero": "Rock Alternativo",
+                            "id": 1,
+                            "nome": "Panic! At The Disco",
+                            "integrantes": [
+                                {
+                                    "cargo": "Baixista",
+                                    "id": 1,
+                                    "nome": "Nicole Row"
+                                },
+                                {
+                                    "cargo": "Vocalista, Pianista e Guitarrista",
+                                    "id": 2,
+                                    "nome": "Brendon Urie"
+                                },
+                                {
+                                    "cargo": "Baterista",
+                                    "id": 3,
+                                    "nome": "Dan Pawlovich"
+                                },
+                                {
+                                    "cargo": "Guitarrista",
+                                    "id": 4,
+                                    "nome": "Mike Narah"
+                                }
+                            ],
+                            "instrumentos": [
+                                {
+                                    "cor": "preta",
+                                    "id": 1,
+                                    "modelo": "top",
+                                    "nome": "guitarra"
+                                },
+                                {
+                                    "cor": "preta",
+                                    "id": 2,
+                                    "modelo": "panic",
+                                    "nome": "bateria"
+                                },
+                                {
+                                    "cor": "preta",
+                                    "id": 3,
+                                    "modelo": "Mozart",
+                                    "nome": "piano"
+                                },
+                                {
+                                    "cor": "prata",
+                                    "id": 4,
+                                    "modelo": "chic",
+                                    "nome": "baixo"
+                                },
+                                {
+                                    "cor": "dourada",
+                                    "id": 5,
+                                    "modelo": "rich",
+                                    "nome": "guitarra"
+                                }
+                            ]
+                        },
+                        "data_hora": "10/3/2019 18:00:00",
+                        "musicas": [
+                            {
+                                "album": "A Fever You Can't Sweet Out",
+                                "id": 1,
+                                "nome": "I Write Sins Not Tragedies"
+                            },
+                            {
+                                "album": "Vices & Virtues",
+                                "id": 2,
+                                "nome": "The Ballad Of Mona Lisa"
+                            },
+                            {
+                                "album": "Suicide Squad",
+                                "id": 3,
+                                "nome": "Bohemian Rhapsody"
+                            }
+                        ],
+                        "id": 1,
+                        "palco": {
+                            "id": 1,
+                            "nome": "Mundo"
+                        }
+                    }
+                ],
+                "patrocinadores": [
+                    {
+                        "id": 1,
+                        "nome": "Itaú",
+                        "status": "Master"
+                    },
+                    {
+                        "id": 2,
+                        "nome": "Riotur",
+                        "status": "Institucional"
+                    },
+                    {
+                        "id": 3,
+                        "nome": "Coca-Cola",
+                        "status": "Marca"
+                    }
+                ],
+                "espacos": [
+                    {
+                        "id": 1,
+                        "nome": "Roda Gigante",
+                        "obs": "Ótima vista"
+                    },
+                    {
+                        "id": 2,
+                        "nome": "Montanha Russa",
+                        "obs": "Radical"
+                    },
+                    {
+                        "id": 3,
+                        "nome": "Big Tower",
+                        "obs": "Frio na Barriga"
+                    }
+                ]
+             
+            }
+        }
+    ]
+}
